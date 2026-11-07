@@ -1,0 +1,21 @@
+#!/bin/bash
+# Build the site for Cloudflare and deploy it with Wrangler.
+#
+# baseUrl differs per host: GitHub Pages serves under /overmind, Cloudflare at
+# a domain root. The committed config targets Pages, so this builds with
+# CF_BASE_URL swapped in and restores the config afterwards.
+set -e
+
+VAULT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CFG="$VAULT/.quartz/quartz.config.yaml"
+
+[ -f "$VAULT/.env" ] && set -a && . "$VAULT/.env" && set +a
+: "${CF_BASE_URL:?set CF_BASE_URL in .env}"
+
+cp "$CFG" "$CFG.bak"
+trap 'mv "$CFG.bak" "$CFG"' EXIT
+sed -i '' -E "s|^  baseUrl: .*|  baseUrl: $CF_BASE_URL|" "$CFG"
+
+"$VAULT/build.sh"
+cd "$VAULT"
+npx wrangler deploy

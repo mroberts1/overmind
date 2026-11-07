@@ -1,0 +1,795 @@
+@use "./variables.scss" as *;
+
+// Neue Haas Unica from Adobe Fonts (kit ejl5bmc). A CSS @import of the kit
+// breaks the SCSS build ("@import rules must precede all rules": Quartz
+// concatenates this file after other CSS), so its @font-face rules are copied
+// here. Browsers only fetch the faces a page uses. If the kit's font list
+// changes in Adobe Fonts, re-copy from https://use.typekit.net/ejl5bmc.css.
+// Adobe serves these only to domains listed on the web project.
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/09a366/00000000000000007735bb30/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3") format("woff2"),url("https://use.typekit.net/af/09a366/00000000000000007735bb30/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3") format("woff"),url("https://use.typekit.net/af/09a366/00000000000000007735bb30/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i1&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/1e7289/00000000000000007735bb2f/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3") format("woff2"),url("https://use.typekit.net/af/1e7289/00000000000000007735bb2f/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3") format("woff"),url("https://use.typekit.net/af/1e7289/00000000000000007735bb2f/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n1&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/670652/00000000000000007735bb2d/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i2&v=3") format("woff2"),url("https://use.typekit.net/af/670652/00000000000000007735bb2d/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i2&v=3") format("woff"),url("https://use.typekit.net/af/670652/00000000000000007735bb2d/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i2&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/67cf4d/00000000000000007735bb2c/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3") format("woff2"),url("https://use.typekit.net/af/67cf4d/00000000000000007735bb2c/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3") format("woff"),url("https://use.typekit.net/af/67cf4d/00000000000000007735bb2c/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n2&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/dfcdaa/00000000000000007735bb21/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff2"),url("https://use.typekit.net/af/dfcdaa/00000000000000007735bb21/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("woff"),url("https://use.typekit.net/af/dfcdaa/00000000000000007735bb21/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/53408e/00000000000000007735bb1e/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/53408e/00000000000000007735bb1e/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/53408e/00000000000000007735bb1e/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/81e838/00000000000000007735bb1b/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/81e838/00000000000000007735bb1b/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/81e838/00000000000000007735bb1b/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/404934/00000000000000007735bb2a/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/404934/00000000000000007735bb2a/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/404934/00000000000000007735bb2a/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/cf593f/00000000000000007735bb27/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3") format("woff2"),url("https://use.typekit.net/af/cf593f/00000000000000007735bb27/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3") format("woff"),url("https://use.typekit.net/af/cf593f/00000000000000007735bb27/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/2a851a/00000000000000007735bb24/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/2a851a/00000000000000007735bb24/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/2a851a/00000000000000007735bb24/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/91f25c/00000000000000007735bb0a/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff2"),url("https://use.typekit.net/af/91f25c/00000000000000007735bb0a/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("woff"),url("https://use.typekit.net/af/91f25c/00000000000000007735bb0a/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i6&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/deedd5/00000000000000007735bb07/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),url("https://use.typekit.net/af/deedd5/00000000000000007735bb07/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"),url("https://use.typekit.net/af/deedd5/00000000000000007735bb07/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/900894/00000000000000007735bb17/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/900894/00000000000000007735bb17/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/900894/00000000000000007735bb17/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/98fb6b/00000000000000007735bb14/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/98fb6b/00000000000000007735bb14/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/98fb6b/00000000000000007735bb14/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/762099/00000000000000007735bb04/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3") format("woff2"),url("https://use.typekit.net/af/762099/00000000000000007735bb04/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3") format("woff"),url("https://use.typekit.net/af/762099/00000000000000007735bb04/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/4a8091/00000000000000007735bb02/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff2"),url("https://use.typekit.net/af/4a8091/00000000000000007735bb02/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff"),url("https://use.typekit.net/af/4a8091/00000000000000007735bb02/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/847aeb/00000000000000007735bb11/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i9&v=3") format("woff2"),url("https://use.typekit.net/af/847aeb/00000000000000007735bb11/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i9&v=3") format("woff"),url("https://use.typekit.net/af/847aeb/00000000000000007735bb11/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i9&v=3") format("opentype");
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-haas-unica";
+  src: url("https://use.typekit.net/af/3adf0f/00000000000000007735bb0e/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff2"),url("https://use.typekit.net/af/3adf0f/00000000000000007735bb0e/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff"),url("https://use.typekit.net/af/3adf0f/00000000000000007735bb0e/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+// Changeling Neo from Adobe Fonts (kit vqx0msf), headings only. Copied for the
+// same @import reason as above; re-copy from https://use.typekit.net/vqx0msf.css.
+@font-face {
+  font-family: "changeling-neo";
+  src: url("https://use.typekit.net/af/7fbe77/00000000000000007735da4d/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/7fbe77/00000000000000007735da4d/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/7fbe77/00000000000000007735da4d/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "changeling-neo";
+  src: url("https://use.typekit.net/af/ac74ae/00000000000000007735da62/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/ac74ae/00000000000000007735da62/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/ac74ae/00000000000000007735da62/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+// ---------------------------------------------------------------------------
+// Plastic Labs theme
+// Palette, type scale and callout extras reproduced from
+// https://plasticlabs.ai/blog/ (itself a Quartz site).
+// Colours live in quartz.config.yaml; this file holds what the config
+// can't express.
+// ---------------------------------------------------------------------------
+
+// Departure Mono is not on Google Fonts, so it is self-hosted here. Google
+// still returns 200 for the combined request and simply skips the unknown
+// family; this @font-face is what actually resolves the header font.
+// Paths are relative, not root-absolute. The stylesheet is emitted at the site
+// root, so "static/fonts/..." resolves under any baseUrl. A leading slash would
+// 404 on GitHub Pages project sites, which are served from /<repo>/ — and the
+// breakage is invisible on any machine that has Departure Mono installed
+// locally, because the system font satisfies the family name.
+// Currently unused: the site is set to Neue Haas Unica in quartz.config.yaml.
+// Kept, with the font files, so switching back is a config change alone. An
+// unreferenced @font-face costs nothing; browsers only fetch a face when
+// something asks for it.
+//
+@font-face {
+  font-family: "Departure Mono";
+  src:
+    url("static/fonts/DepartureMono-Regular.woff2") format("woff2"),
+    url("static/fonts/DepartureMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+// Paper Mono (OFL), the body and code face. Self-hosted for the same reason
+// as Departure Mono above, with the same relative path. One variable file
+// covers weights 100 to 800; there is no italic, so browsers synthesise one.
+// Built from PaperMono[wght].ttf with fontTools (flavor woff2).
+@font-face {
+  font-family: "Paper Mono";
+  src: url("static/fonts/PaperMono.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+// IBM Plex Sans (OFL), the Swiss design face. Two variable latin-subset files
+// from Google Fonts (roman and italic), self-hosted with the same relative path
+// as the faces above. IBM Plex Mono is the code face.
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("static/fonts/IBMPlexSans.woff2") format("woff2");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("static/fonts/IBMPlexSans-Italic.woff2") format("woff2");
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("static/fonts/IBMPlexMono.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+// Swiss design: 16px base, everything on an 8px grid. color-scheme keeps
+// scrollbars and native controls matched to the stone palette.
+html {
+  font-size: 100%;
+  color-scheme: light dark;
+}
+
+:root {
+  --customCallout: var(--highlight);
+  --searchBackground: #e7e5e4;
+
+  // The quartz-fonts plugin emits a bare family name; these add the fallback
+  // stack. The VG5000, Spline Sans Mono, Paper Mono and Neue Haas Unica
+  // @font-face rules are kept but unreferenced.
+  --headerFont: "IBM Plex Sans", "Hanken Grotesk", "Barlow", "DM Sans", system-ui, sans-serif;
+  --bodyFont: "IBM Plex Sans", "Hanken Grotesk", "Barlow", "DM Sans", system-ui, sans-serif;
+  --codeFont: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+:root[saved-theme="dark"] {
+  --customCallout: var(--highlight);
+  --searchBackground: #292524;
+}
+
+// Typography after e-flux.com: Neue Haas Unica at 15px (0.9375rem, 75% of
+// e-flux's 20px; the rem-based layout is untouched), line-height 1.3, proportional
+// figures, bold headings at 2.5 / 1.5 / 1.334 times the body size.
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625;
+  font-feature-settings: "tnum";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// The quartz-fonts plugin emits its own `h1, h2, ... { font-family: <family> }`
+// with the bare family name and no fallback, unlayered, in a stylesheet that
+// loads after this one. An equal-specificity override loses on source order, so
+// the `body` prefix is load-bearing: 0,0,2 beats its 0,0,1 regardless of order.
+// Without this, headings on a machine lacking Helvetica Neue drop to the
+// browser default while the rest of the page falls back to Helvetica or Arial.
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: var(--headerFont);
+}
+
+// A page whose only property is `description` shows it as a subtitle under the
+// title, in the body font, instead of the folded Properties block. Pages with
+// tags or aliases keep the regular block.
+.note-properties:has(tbody > tr:only-child) {
+  margin: 0.25rem 0 1.25rem;
+  border: 0;
+  background: none;
+  padding: 0;
+
+  summary,
+  .note-properties-key {
+    display: none;
+  }
+
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    border: 0;
+    background: none;
+    padding: 0;
+  }
+
+  .note-properties-value,
+  .note-properties-text {
+    font-family: var(--bodyFont);
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--gray);
+  }
+}
+
+// Swiss type scale: light headings with tight tracking, normal weight below
+// h2, captions (h4 and under) small caps-style uppercase. Never bold.
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-top: 3rem;
+}
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.375;
+  margin-top: 2rem;
+}
+h4,
+h5,
+h6 {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+body h1 {
+  text-wrap: wrap;
+}
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-weight: 400;
+}
+body h4,
+body h5,
+body h6 {
+  letter-spacing: 0.05em;
+}
+
+// Emphasis is medium weight, not bold. Body columns stop at 60ch.
+strong,
+b {
+  font-weight: 500;
+}
+
+article > .markdown-preview-view > p,
+article > .markdown-preview-view > ul,
+article > .markdown-preview-view > ol,
+article > .markdown-preview-view > blockquote:not(.callout) {
+  max-width: 60ch;
+}
+
+article > .markdown-preview-view > p {
+  text-wrap: pretty;
+}
+
+// Images and embeds use the full column; only running text is capped.
+article > .markdown-preview-view > p:has(img, iframe, video) {
+  max-width: none;
+}
+
+// Links after e-flux.com: body text colour, regular weight, no highlight box,
+// and a 1px grey (#666) underline drawn as a background gradient, greying on
+// hover. Heading anchors are excluded so headings are not underlined.
+article a:not([role="anchor"]),
+article a.internal:not([role="anchor"]) {
+  color: var(--dark);
+  font-weight: inherit;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: linear-gradient(180deg, var(--gray) 1px, transparent 0);
+  transition: color 0.15s;
+  background-size: 1px 1px;
+  background-repeat: repeat-x;
+  background-position: 0 97%;
+
+  &:hover {
+    color: var(--secondary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+input[type="search"] {
+  background-color: var(--searchBackground);
+}
+
+// Long lines wrap rather than scroll horizontally.
+pre {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  padding: 1rem !important;
+
+  & > code {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    display: block !important;
+    padding-left: 1rem !important;
+  }
+}
+
+// An extra callout type beyond Obsidian's set: > [!custom]
+.callout[data-callout="custom"] {
+  --color: var(--darkgray);
+  --border: var(--tertiary);
+  --bg: var(--customCallout);
+  --callout-icon: var(--callout-icon-tip);
+}
+
+// Quartz emits YouTube embeds as a bare iframe carrying a fixed width="600px"
+// and no wrapper element, so the padding-bottom hack in the vault's
+// videoContainer.css snippet has nothing to hang on. aspect-ratio does the same
+// 16:9 job on the iframe itself. The width attribute still applies when CSS is
+// unavailable, so it is left in place rather than overridden in the HTML.
+iframe.external-embed.youtube {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+// Folder/tag listings render as a card grid instead of a plain list.
+.page-listing {
+  ul.section-ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+
+    @media all and #{$mobile} {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  li.section-li {
+    position: relative;
+    border: 1px solid var(--lightgray);
+    border-radius: 0;
+    background-color: var(--light);
+    padding: 2rem;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: var(--secondary);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      height: 100%;
+    }
+
+    .meta {
+      margin: 0;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    .desc {
+      flex: 1;
+
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+
+        a {
+          color: var(--dark);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--secondary);
+          }
+
+          // Makes the whole card clickable.
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+          }
+        }
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin: 0;
+      }
+
+      a {
+        border-radius: 0;
+        background-color: var(--highlight);
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        text-decoration: none;
+
+        &:hover {
+          background-color: var(--secondary);
+          color: var(--light);
+        }
+      }
+    }
+  }
+}
+
+// Cover animation on the front page. Click the still to play; the clip is
+// trimmed to end on the same frame as the poster, so it resolves back into
+// the cover rather than cutting away. Nothing moves until the reader asks.
+.cover-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+// Target-specific lines. One source, three outputs: what belongs on the Pages
+// site is not always what belongs on Canvas -- the web syllabus links to the
+// PDF, the Canvas syllabus links back to the web. Both variants sit on one
+// line in the markdown so hiding one does not leave a stray line break.
+// script/canvas does the inverse: it drops .web-only and unwraps .canvas-only.
+.canvas-only {
+  display: none;
+}
+
+// Font Awesome 7.3.1 Free, self-hosted. Only the two faces and the four icons
+// actually used, rather than the whole 9.6MB kit: a CSS @import breaks the
+// SCSS build (@use must come first) and there is no config hook for adding a
+// <link> to <head>, so the icons are declared here the same way Departure Mono
+// is. Codepoints are read from the kit's own all.min.css, not guessed.
+//
+// Canvas strips both the kit script and inline SVG, so script/canvas rewrites
+// these <i> tags to text labels. Icons are a Pages-only affordance.
+@font-face {
+  font-family: "Font Awesome 7 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("static/fonts/fa-brands-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Font Awesome 7 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("static/fonts/fa-solid-900.woff2") format("woff2");
+}
+
+.fa-brands,
+.fa-solid {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+  vertical-align: -0.125em;
+}
+
+.fa-brands {
+  font-family: "Font Awesome 7 Brands";
+  font-weight: 400;
+}
+
+.fa-solid {
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+}
+
+.fa-brands::before,
+.fa-solid::before {
+  content: var(--fa);
+}
+
+.fa-envelope {
+  --fa: "\f0e0";
+}
+
+.fa-mastodon {
+  --fa: "\f4f6";
+}
+
+.fa-github {
+  --fa: "\f09b";
+}
+
+.fa-twitter {
+  --fa: "\f099";
+}
+
+// Links in the body are otherwise marked only by colour, which barely
+// separates them from the text in a single-weight monospace face. Underline
+// them on screen. Sidebar, nav and footer links are left alone: their position
+// already says they are links, and underlining the whole explorer is noise.
+// The print block below strips these again, so the PDF is unaffected.
+article a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+// Two exceptions inside the article: the Font Awesome contact icons in the
+// course-details callout, and the anchor Quartz appends to each heading. An
+// underline under a glyph or a section title reads as a mistake.
+article a:has(.fa-brands),
+article a:has(.fa-solid),
+article h1 > a,
+article h2 > a,
+article h3 > a,
+article h4 > a,
+article h5 > a,
+article h6 > a {
+  text-decoration: none;
+}
+
+// Left-floated image with the following text wrapped to its right. Markdown
+// has no float syntax, so the page uses a raw <img class="float-left"> and
+// ends the wrap with <div class="clear-float"></div>. flow-root keeps a
+// blockquote's left border beside the image instead of under it.
+img.float-left {
+  float: left;
+  margin: 0 1.5rem 1rem 0;
+
+  @media all and #{$mobile} {
+    float: none;
+    display: block;
+    margin: 0 0 1rem 0;
+  }
+}
+
+img.float-left ~ blockquote {
+  display: flow-root;
+}
+
+.clear-float {
+  clear: both;
+}
+
+// Print. The syllabus gets handed out as a PDF, so the page has to drop the
+// site chrome and run the article full width. Generated with:
+//   chrome --headless --no-pdf-header-footer --print-to-pdf=out.pdf <url>
+@media print {
+  @page {
+    size: letter;
+    margin: 18mm 16mm;
+  }
+
+  // Force the light palette: printing from dark mode would otherwise put a
+  // near-black ground behind everything.
+  :root {
+    --light: #fff;
+    --dark: #222;
+    --darkgray: #222;
+    --gray: #555;
+    --secondary: #222;
+  }
+
+  body {
+    background: #fff;
+    color: #222;
+  }
+
+  // `footer` is the Quartz credit block, which otherwise prints as a nearly
+  // empty last page. `.external-icon` is the little arrow after every link.
+  .left.sidebar,
+  .right.sidebar,
+  .explorer-toggle,
+  .mobile-explorer,
+  .search,
+  .darkmode,
+  .readermode,
+  .page-footer,
+  footer,
+  .external-icon {
+    display: none !important;
+  }
+
+  // Quartz's separator before the footer. It is a direct child of .center, so
+  // this does not touch the rules written in the markdown, which live inside
+  // <article>. Left in, it prints as a stray line on a page of its own.
+  .center > hr {
+    display: none !important;
+  }
+
+  .page,
+  .page .center {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Any leftover height after the last line pushes out a blank final page. A
+  // trailing decorative rule earns nothing in print.
+  html,
+  body,
+  .page,
+  .page .center,
+  article {
+    min-height: 0 !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  article *:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  article hr:last-child {
+    display: none !important;
+  }
+
+  // Keep headings with the text they introduce, and never split a callout.
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  blockquote,
+  .callout,
+  li {
+    break-inside: avoid;
+  }
+
+  // Underlined blue links read as noise on paper, and internal links carry a
+  // highlight box that prints as a grey slab.
+  a,
+  a.internal {
+    color: #222;
+    background: none !important;
+    text-decoration: none;
+  }
+}
+
+// A rule under the week pages in the sidebar, which quartz.config.yaml sorts first.
+.explorer-ul li:has(> a[href*="week-"]) + li:not(:has(> a[href*="week-"])) {
+  border-top: 1px solid var(--lightgray);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}

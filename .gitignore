@@ -1,0 +1,16 @@
+public/
+.DS_Store
+.obsidian/workspace*
+.quartz/node_modules/
+.quartz/.quartz-cache/
+
+# Editor state. Local settings and appearance, not site content; the same
+# reasoning that keeps .obsidian/ out.
+.antigravity/
+.cursor/
+.vscode/
+.windsurf/
+
+# Secrets and Wrangler state
+.env
+.wrangler/
